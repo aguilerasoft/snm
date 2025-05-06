@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import React, { useEffect, useState } from 'react';
 import { columns } from "./columns";
 import { DataTable } from "./data-table";
@@ -7,7 +6,7 @@ import SendEmailButton from '@/components/SendEmailButton';
 
 interface Payment {
   id: string;
-  issatisfied: boolean;
+  amount: number;
   status: string;
   email: string;
 }
@@ -26,6 +25,7 @@ export async function getData(): Promise<Payment[]> {
   }
 }
 
+
 const Dashboard: React.FC = () => {
   const [data, setData] = useState<Payment[]>([]);
 
@@ -35,13 +35,16 @@ const Dashboard: React.FC = () => {
       setData(result);
     };
 
+
+
     fetchData();
+
   }, []);
+
 
   let countTrue = 0;
   let countFalse = 0;
   let countNone = 0;
-
   data.forEach(element => {
     if (element.issatisfied === true) {
       countTrue++;
@@ -52,6 +55,7 @@ const Dashboard: React.FC = () => {
     }
   });
 
+
   return (
     <div className="flex h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
       {/* Main Content */}
@@ -61,6 +65,7 @@ const Dashboard: React.FC = () => {
             <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
               Administrador de Sujetos Regulados
             </h1>
+
             <p className="text-gray-500 mt-2">Gestión de respuestas y seguimiento</p>
           </div>
           <div className="mt-4 md:mt-0">
@@ -90,7 +95,7 @@ const Dashboard: React.FC = () => {
           <div className="bg-white rounded-xl shadow-md overflow-hidden border-l-4 border-red-500 hover:shadow-lg transition-shadow duration-300">
             <div className="p-6">
               <div className="flex items-center">
-                <div className="p-3 rounded-full bg-red-100 text -red-600">
+                <div className="p-3 rounded-full bg-red-100 text-red-600">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                   </svg>
@@ -125,6 +130,7 @@ const Dashboard: React.FC = () => {
         </div>
         <p className='text-gray-500 mb-2'>El envio de correo es para Notificar y Segunda Notificación</p>
         <section className="bg-white rounded-xl shadow-md overflow-hidden">
+
           <div className="px-6 py-4 border-b border-gray-200">
             <h2 className="text-xl font-semibold text-gray-800">Registros Detallados</h2>
           </div>
