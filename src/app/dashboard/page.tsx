@@ -13,7 +13,7 @@ interface Payment {
   issatisfied?: boolean; // Assuming this property exists; make sure to adjust as needed
 }
 
-export async function getData(): Promise<Payment[]> {
+async function getData(): Promise<Payment[]> {
   try {
     const response = await fetch('http://172.17.2.131:8000/api/persons/'); // Replace with your real API endpoint
     if (!response.ok) {
