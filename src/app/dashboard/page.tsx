@@ -27,7 +27,7 @@ export async function getData(): Promise<Payment[]> {
 }
 
 const Dashboard: React.FC = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Payment[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
