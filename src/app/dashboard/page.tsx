@@ -5,15 +5,9 @@ import { columns } from "./columns";
 import { DataTable } from "./data-table";
 import SendEmailButton from '@/components/SendEmailButton';
 
-interface Payment {
-  id: string;
-  amount: number;
-  status: string;
-  email: string;
-  issatisfied?: boolean; // Assuming this property exists; make sure to adjust as needed
-}
 
-async function getData(): Promise<Payment[]> {
+
+async function getData() {
   try {
     const response = await fetch('http://172.17.2.131:8000/api/persons/'); // Replace with your real API endpoint
     if (!response.ok) {
@@ -28,7 +22,7 @@ async function getData(): Promise<Payment[]> {
 }
 
 const Dashboard: React.FC = () => {
-  const [data, setData] = useState<Payment[]>([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
