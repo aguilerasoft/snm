@@ -13,7 +13,7 @@ async function getData() {
     if (!response.ok) {
       throw new Error(`Error fetching data: ${response.statusText}`);
     }
-    const data = await response.json();
+    const data: Payment[] = await response.json();
     return data;
   } catch (error) {
     console.error('Failed to fetch payments:', error);
