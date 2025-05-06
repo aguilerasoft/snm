@@ -5,9 +5,14 @@ import { columns } from "./columns";
 import { DataTable } from "./data-table";
 import SendEmailButton from '@/components/SendEmailButton';
 
+interface Payment {
+  id: string;
+  issatisfied: boolean;
+  status: string;
+  email: string;
+}
 
-
-async function getData() {
+export async function getData(): Promise<Payment[]> {
   try {
     const response = await fetch('http://172.17.2.131:8000/api/persons/'); // Replace with your real API endpoint
     if (!response.ok) {
