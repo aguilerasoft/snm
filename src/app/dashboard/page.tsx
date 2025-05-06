@@ -11,7 +11,7 @@ interface Payment {
   email: string;
 }
 
-export async function getData(): {
+export async function getData(){
   try {
     const response = await fetch('http://172.17.2.131:8000/api/persons/'); // Replace with your real API endpoint
     if (!response.ok) {
